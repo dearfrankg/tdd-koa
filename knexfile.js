@@ -1,5 +1,6 @@
 const path = require("path");
 const BASE_PATH = path.join(__dirname, "server", "db");
+
 module.exports = {
   test: {
     client: "sqlite3",

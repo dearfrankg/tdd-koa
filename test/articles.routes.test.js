@@ -11,8 +11,8 @@ const should = chai.should();
 const chaiHttp = require("chai-http");
 chai.use(chaiHttp);
 
-// Rollback, commit and populate the test database before each test
 describe("routes: articles", () => {
+  // Rollback, commit and populate the test database before each test
   beforeEach(() => {
     return knex.migrate
       .rollback()
@@ -29,7 +29,6 @@ describe("routes: articles", () => {
     return knex.migrate.rollback();
   });
 
-  // Here comes the first test
   describe(`GET ${PATH}`, () => {
     it("should return all the resources", done => {
       chai
@@ -60,6 +59,7 @@ describe("routes: articles", () => {
           done();
         });
     });
+
     it("should return an error when the requested article does not exists", done => {
       chai
         .request(server)
@@ -94,6 +94,7 @@ describe("routes: articles", () => {
           done();
         });
     });
+
     it("should return an error when the resource already exists", done => {
       chai
         .request(server)
